@@ -1,0 +1,15 @@
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\bin\Debug\netcoreapp2.1\HairoicAPI.deps.json
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\bin\Debug\netcoreapp2.1\HairoicAPI.runtimeconfig.json
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\bin\Debug\netcoreapp2.1\HairoicAPI.runtimeconfig.dev.json
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\bin\Debug\netcoreapp2.1\HairoicAPI.dll
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.csprojAssemblyReference.cache
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.csproj.CoreCompileInputs.cache
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.RazorAssemblyInfo.cache
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.RazorAssemblyInfo.cs
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.AssemblyInfoInputs.cache
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.AssemblyInfo.cs
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.RazorTargetAssemblyInfo.cache
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\bin\Debug\netcoreapp2.1\HairoicAPI.pdb
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.dll
+C:\Users\jenni\workspace\learning\hairoic\HairoicAPI\obj\Debug\netcoreapp2.1\HairoicAPI.pdb
