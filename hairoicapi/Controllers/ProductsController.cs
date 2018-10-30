@@ -22,12 +22,36 @@ namespace HairoicAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Products
+        // GET: api/Products?upc=UPC
         [HttpGet]
-        public IEnumerable<Product> GetProduct()
+        public async Task<IActionResult> Index(long upc)
         {
-            return _context.Product;
+            //var product = from m in _context.Product.Include(p => p.Name)
+            //               select m;
+
+            var product = await _context.Product
+                //.Include("ProductIngredients.IngredientId")
+                .Where(p => p.UPC == upc)
+                .SingleAsync();
+
+            var productIng = _context.ProductIngredient
+                .Include(i => i.Ingredient)
+                .Where(pi => pi.ProductId == product.ProductId)
+                .Select(i => i.Ingredient).ToList();
+
+            product.Ingredients = productIng;
+
+            //var applicationDbContext = _context.Product.Include(p => p.ProductType);
+            //return View(await applicationDbContext.ToListAsync());
+            return Ok(product);
         }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+
 
         // GET: api/Products/5
         [HttpGet("{id}")]
