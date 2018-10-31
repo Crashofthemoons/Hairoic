@@ -44,3 +44,12 @@
 .hidden {
   visibility: hidden;
 }
+
+.notHidden {
+  margin-top: 50px !important;
+  margin-left: 0 auto !important;
+}
+
+.top-margin {
+  margin-top: 50px !important;
+}

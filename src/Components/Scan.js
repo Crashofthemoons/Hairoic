@@ -3,12 +3,14 @@ import '../App.css';
 import Quagga from 'quagga'; // ES6
 //const Quagga = require('quagga').default; // Common JS (important: default)
 import '../ApplicationViews';
-import { Button, Link } from 'semantic-ui-react'
+import { Button, Menu, Icon, Image, Input } from 'semantic-ui-react'
 import APIManager from '../APIManager'
-import { STATUS_CODES } from 'http';
+import CreateProduct from './CreateProduct'
+import LogIn from './LogIn'
+import { Redirect, Link } from "react-router-dom";
 
 
-class Scan extends Component {
+export default class Scan extends Component {
 
     state={
         isHidden: "notHidden",
@@ -32,8 +34,8 @@ scan = () => {
               this.setState({barcode: code});
             APIManager.getData(`products?upc=${code}`)
             .catch((error) => {
-                console.log("this product does not exist", error);
-                this.location.pushState(this.state.barcode, 'createproduct');
+                console.log("product does not exist", error);
+                this.props.history.push('/createproduct')
               })
             .then(thisProduct => { // reset state search: with results
                 this.setState({
@@ -66,17 +68,34 @@ scan = () => {
     this.setState({isHidden: "hidden"});
 }
 
+newProduct = () =>{
+    console.log("hello")
+}
+
 render() {
     return (
-        <React.Fragment>
-      <div id='barcode-scanner'>
-        <Link to={{ pathname: "/createproduct" }}>
-        </Link>
-      </div>
-    <Button className={this.state.isHidden} circular icon='barcode' color='teal' size='massive' onClick={this.scan}>Scan a Product</Button>
+    <React.Fragment>
+        <Menu fixed='top' inverted>
+            <Menu.Item as='a' header onClick={this.resetSearch}>
+                <Image id="logo" size='tiny' srcSet='' style={{ marginRight: '1.5em' }} />
+                Hairoic
+                </Menu.Item>
+                <Menu.Item>
+                    <Link
+                        to={{
+                            pathname: "/login"
+                        }}>
+                        Log In
+                    </Link>
+                </Menu.Item>
+                <Menu.Item onClick={this.logOut}>
+                    Log Out
+                </Menu.Item>
+            {/* <Input ref="search" id="search" style={{ marginLeft: '3em' }} onKeyPress={this.searchBar} transparent inverted placeholder='Search...'/> */}
+        </Menu>
+      <div id='barcode-scanner' onDetected={this.newProduct}></div>
+     <Button className={this.state.isHidden} circular icon='barcode' color='teal' size='massive' onClick={this.scan}>Scan a Product</Button>
     </React.Fragment>
     );
   }
 }
-
-export default Scan;
