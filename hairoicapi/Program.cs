@@ -19,6 +19,6 @@ namespace HairoicAPI
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>().UseUrls("http://*");
+                .UseStartup<Startup>()/*.UseUrls("http://*")*/;
     }
 }

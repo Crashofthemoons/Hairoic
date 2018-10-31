@@ -32,7 +32,6 @@ namespace HairoicAPI.Models
 
             User user = new User
             {
-                Name = "Jenn",
                 UserName = "jenn@gmail.com",
                 NormalizedUserName = "JENN@GMAIL.COM",
                 Email = "jenn@gmail.com",

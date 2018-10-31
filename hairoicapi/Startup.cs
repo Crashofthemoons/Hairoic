@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using HairoicAPI.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace HairoicAPI
 {
@@ -35,6 +36,10 @@ namespace HairoicAPI
 
             services.AddDbContext<HairoicAPIContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("HairoicAPIContext")));
+
+            services.AddDefaultIdentity<User>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<HairoicAPIContext>();
 
             services.AddCors(o => o.AddPolicy("HairoicPolicy", builder => {
                 builder.AllowAnyOrigin()

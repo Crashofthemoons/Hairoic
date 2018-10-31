@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HairoicAPI.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HairoicAPI.Controllers
 {
@@ -47,6 +48,7 @@ namespace HairoicAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public string Index(string searchString, bool notUsed)
         {
             return "From [HttpPost]Index: filter on " + searchString;
@@ -97,6 +99,7 @@ namespace HairoicAPI.Controllers
 
         // PUT: api/Products/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutProduct([FromRoute] int id, [FromBody] Product product)
         {
             if (!ModelState.IsValid)
@@ -132,6 +135,7 @@ namespace HairoicAPI.Controllers
 
         // POST: api/Products
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> PostProduct([FromBody] Product product)
         {
             if (!ModelState.IsValid)
@@ -156,6 +160,7 @@ namespace HairoicAPI.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteProduct([FromRoute] int id)
         {
             if (!ModelState.IsValid)

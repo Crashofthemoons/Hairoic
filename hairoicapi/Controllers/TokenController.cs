@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Linq;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using HairoicAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using HairoicAPI.Models;
 
-namespace HairoicAPI.Controllers
+namespace MusicAPI.Controllers
 {
 
     [Route("/api/token")]
@@ -22,12 +22,15 @@ namespace HairoicAPI.Controllers
     {
         private HairoicAPIContext _context;
         private readonly SignInManager<User> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public TokenController(
             HairoicAPIContext ctx,
-            SignInManager<User> signInManager
+            SignInManager<User> signInManager,
+            RoleManager<IdentityRole> roleManager
         )
         {
+            _roleManager = roleManager;
             _context = ctx;
             _signInManager = signInManager;
         }
@@ -50,13 +53,25 @@ namespace HairoicAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody]NewUser postUser)
+        public async Task<IActionResult> Create([FromBody] NewUser postUser)
         {
             // Check simplistic username and password validation rules
             bool isValid = IsValidUserAndPasswordCombination(postUser.Username, postUser.Password);
 
             if (isValid)
             {
+                // Check if roles exist in the app
+                //string[] roles = new[] { "User", "Manager", "Administrator" };
+
+                //foreach (var role in roles)
+                //{
+                //    if (!await _roleManager.RoleExistsAsync(role))
+                //    {
+                //        var newRole = new IdentityRole(role);
+                //        await _roleManager.CreateAsync(newRole);
+                //    }
+                //}
+
                 // Does the user already exist?
                 User user = _context.User.SingleOrDefault(u => u.UserName == postUser.Username);
 
@@ -78,7 +93,6 @@ namespace HairoicAPI.Controllers
                     // User does not exist, create one
                     user = new User
                     {
-                        Name = "Generic",
                         UserName = postUser.Username,
                         NormalizedUserName = postUser.Username.ToUpper(),
                         Email = postUser.Username,
@@ -90,7 +104,7 @@ namespace HairoicAPI.Controllers
                     var passwordHash = new PasswordHasher<User>();
                     user.PasswordHash = passwordHash.HashPassword(user, postUser.Password);
                     await userstore.CreateAsync(user);
-                    // await userstore.AddToRoleAsync(user);
+                    //await userstore.AddToRoleAsync(user, "Administrator");
                     _context.SaveChanges();
                     return new ObjectResult(GenerateToken(user.UserName));
                 }
@@ -105,19 +119,18 @@ namespace HairoicAPI.Controllers
 
         private string GenerateToken(string username)
         {
-            var claims = new Claim[]
-            {
-                new Claim(ClaimTypes.Name, username),
-                new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),
-                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString())
+            var claims = new Claim[] {
+                new Claim (ClaimTypes.Name, username),
+                new Claim (JwtRegisteredClaimNames.Nbf, new DateTimeOffset (DateTime.Now).ToUnixTimeSeconds ().ToString ()),
+                new Claim (JwtRegisteredClaimNames.Exp, new DateTimeOffset (DateTime.Now.AddDays (1)).ToUnixTimeSeconds ().ToString ()),
+                new Claim (ClaimTypes.Role, "Administrator"),
             };
 
             var token = new JwtSecurityToken(
                 new JwtHeader(new SigningCredentials(
                     new SymmetricSecurityKey(
                         Encoding.UTF8.GetBytes("7A735D7B-1A19-4D8A-9CFA-99F55483013F")),
-                        SecurityAlgorithms.HmacSha256)
-                    ),
+                    SecurityAlgorithms.HmacSha256)),
                 new JwtPayload(claims)
             );
 

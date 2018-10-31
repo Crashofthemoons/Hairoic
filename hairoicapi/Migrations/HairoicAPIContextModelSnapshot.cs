@@ -38,76 +38,76 @@ namespace HairoicAPI.Migrations
                     b.ToTable("Ingredient");
 
                     b.HasData(
-                        new { IngredientId = 1, Name = "Alkylbenzene Sulfonate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 2, Name = "Ammonium Laureth", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 3, Name = "Lauryl Sulfate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 4, Name = "Ammonium", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 5, Name = "Sodium Xylenesulfonate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 6, Name = "Dioctyl Sodium Sulfosuccinate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 7, Name = "Ethyl PEG-15 Cocamine Sulfate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 8, Name = "Sodium C14-16 Cocamine Sulfate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 9, Name = "Sodium Cocoyl Sarcosinate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 10, Name = "Sodium Laureth", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 11, Name = "Sodium Myreth", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 12, Name = "Sodium Lauryl Sulfoacetate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 13, Name = "TEA-Dodecylbenzenesulfonate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 14, Name = "Cocamidopropyl Betaine", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 15, Name = "Coco Betaine", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 16, Name = "Cocoamphoacetate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 17, Name = "Cocoamphodipropionate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 18, Name = "Disodium Cocoamphodiacetate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 19, Name = "Lauroamphoacetate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 20, Name = "Sodium Cocoyl Isethionate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 21, Name = "Cetearyl Methiocne", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 22, Name = "Cetyl Dimethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 23, Name = "Dimethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 24, Name = "Stearyl Dimethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 25, Name = "Amodimethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 26, Name = "Cyclomethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 27, Name = "Cyclopentasiloxane", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 28, Name = "Trimethysilylamodimethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 29, Name = "Behenoxy Demethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 30, Name = "Stearoxy Dimethicone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 31, Name = "Pyrithicone Zinc 1%", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 32, Name = "Water", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 33, Name = "Glycol Distearate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 34, Name = "Zinc Carbonate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 35, Name = "Sodium Chloride", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 36, Name = "Fragrance", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 37, Name = "Sodium Benzoate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 38, Name = "Guar Hydroxypropyltrimonium Chloride", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 39, Name = "Magnesium Carbonate Hydroxide", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 40, Name = "Methylchloroisothiazolinone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 41, Name = "Methylisothiazolinone", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 42, Name = "Blue 1", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 43, Name = "Red 33", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 44, Name = "Water", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 45, Name = "Glycol Distearate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 46, Name = "Zinc Carbonate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 47, Name = "Sodium Chloride", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 48, Name = "Polyquaternium-7", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 49, Name = "Sodium Benzoate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 50, Name = "Glycerin", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 51, Name = "PEG-60 Almond Glycerides", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 52, Name = "PEG-40 Hydrogenated Castor Oil", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 53, Name = "Linum Usitatissimum (Linseed) Seed Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 54, Name = "Salvia Hispanica Seed Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 55, Name = "Hydrolyzed Rice Protein", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 56, Name = "Nymphaea Lotus Flower Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 57, Name = "Melissa Officinalis Leaf Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 58, Name = "Humulus Lupulus (Hops) Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 59, Name = "Cymbopogon Schoenanthus Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 60, Name = "Chamomilla Recutita (Matricaria) Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 61, Name = "Rosmarinus Officinalis (Rosemary) Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 62, Name = "Achillea Millefolium Extract", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 63, Name = "Hydroxyethylcellulose", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 64, Name = "PEG-7 Glyceryl Cocoate", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 65, Name = "Polyquaternium-10", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 66, Name = "Propylene Glycol", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 67, Name = "Hydroxypropyl Guar Hydroxypropyltrimonium Chloride", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 68, Name = "Aminomethyl Propanol", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 69, Name = "Phenoxyethanol", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" },
-                        new { IngredientId = 70, Name = "Ethylhexylglycerin", UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" }
+                        new { IngredientId = 1, Name = "Alkylbenzene Sulfonate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 2, Name = "Ammonium Laureth", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 3, Name = "Lauryl Sulfate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 4, Name = "Ammonium", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 5, Name = "Sodium Xylenesulfonate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 6, Name = "Dioctyl Sodium Sulfosuccinate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 7, Name = "Ethyl PEG-15 Cocamine Sulfate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 8, Name = "Sodium C14-16 Cocamine Sulfate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 9, Name = "Sodium Cocoyl Sarcosinate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 10, Name = "Sodium Laureth", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 11, Name = "Sodium Myreth", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 12, Name = "Sodium Lauryl Sulfoacetate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 13, Name = "TEA-Dodecylbenzenesulfonate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 14, Name = "Cocamidopropyl Betaine", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 15, Name = "Coco Betaine", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 16, Name = "Cocoamphoacetate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 17, Name = "Cocoamphodipropionate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 18, Name = "Disodium Cocoamphodiacetate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 19, Name = "Lauroamphoacetate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 20, Name = "Sodium Cocoyl Isethionate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 21, Name = "Cetearyl Methiocne", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 22, Name = "Cetyl Dimethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 23, Name = "Dimethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 24, Name = "Stearyl Dimethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 25, Name = "Amodimethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 26, Name = "Cyclomethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 27, Name = "Cyclopentasiloxane", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 28, Name = "Trimethysilylamodimethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 29, Name = "Behenoxy Demethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 30, Name = "Stearoxy Dimethicone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 31, Name = "Pyrithicone Zinc 1%", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 32, Name = "Water", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 33, Name = "Glycol Distearate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 34, Name = "Zinc Carbonate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 35, Name = "Sodium Chloride", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 36, Name = "Fragrance", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 37, Name = "Sodium Benzoate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 38, Name = "Guar Hydroxypropyltrimonium Chloride", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 39, Name = "Magnesium Carbonate Hydroxide", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 40, Name = "Methylchloroisothiazolinone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 41, Name = "Methylisothiazolinone", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 42, Name = "Blue 1", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 43, Name = "Red 33", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 44, Name = "Water", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 45, Name = "Glycol Distearate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 46, Name = "Zinc Carbonate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 47, Name = "Sodium Chloride", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 48, Name = "Polyquaternium-7", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 49, Name = "Sodium Benzoate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 50, Name = "Glycerin", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 51, Name = "PEG-60 Almond Glycerides", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 52, Name = "PEG-40 Hydrogenated Castor Oil", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 53, Name = "Linum Usitatissimum (Linseed) Seed Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 54, Name = "Salvia Hispanica Seed Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 55, Name = "Hydrolyzed Rice Protein", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 56, Name = "Nymphaea Lotus Flower Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 57, Name = "Melissa Officinalis Leaf Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 58, Name = "Humulus Lupulus (Hops) Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 59, Name = "Cymbopogon Schoenanthus Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 60, Name = "Chamomilla Recutita (Matricaria) Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 61, Name = "Rosmarinus Officinalis (Rosemary) Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 62, Name = "Achillea Millefolium Extract", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 63, Name = "Hydroxyethylcellulose", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 64, Name = "PEG-7 Glyceryl Cocoate", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 65, Name = "Polyquaternium-10", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 66, Name = "Propylene Glycol", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 67, Name = "Hydroxypropyl Guar Hydroxypropyltrimonium Chloride", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 68, Name = "Aminomethyl Propanol", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 69, Name = "Phenoxyethanol", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" },
+                        new { IngredientId = 70, Name = "Ethylhexylglycerin", UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" }
                     );
                 });
 
@@ -132,7 +132,7 @@ namespace HairoicAPI.Migrations
                     b.ToTable("Product");
 
                     b.HasData(
-                        new { ProductId = 1, Name = "Deva Curl Low Poo Delight", UPC = 850963006195L, UserId = "d7dc5261-e790-46e5-b2eb-d9093e51cd08" }
+                        new { ProductId = 1, Name = "Deva Curl Low Poo Delight", UPC = 850963006195L, UserId = "e75defa0-369d-4d86-a0d6-41a43ed09db3" }
                     );
                 });
 
@@ -201,9 +201,6 @@ namespace HairoicAPI.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
-
                     b.Property<string>("NormalizedEmail");
 
                     b.Property<string>("NormalizedUserName");
@@ -225,7 +222,7 @@ namespace HairoicAPI.Migrations
                     b.ToTable("User");
 
                     b.HasData(
-                        new { Id = "d7dc5261-e790-46e5-b2eb-d9093e51cd08", AccessFailedCount = 0, ConcurrencyStamp = "e82ba2e5-91c9-496e-8572-878e2536019c", Email = "jenn@gmail.com", EmailConfirmed = true, LockoutEnabled = false, Name = "Jenn", NormalizedEmail = "JENN@GMAIL.COM", NormalizedUserName = "JENN@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAELqGDeeLhOHM79Q7ZUWLzjgMsZR7vaWIo5IkkRQzhz/8yOj2IVN2Xsk2IsIo+hhT+g==", PhoneNumberConfirmed = false, SecurityStamp = "3003fc45-de8e-447c-ad1e-0df4823688ca", TwoFactorEnabled = false, UserName = "jenn@gmail.com" }
+                        new { Id = "e75defa0-369d-4d86-a0d6-41a43ed09db3", AccessFailedCount = 0, ConcurrencyStamp = "ad6afd35-c49e-446e-b0e8-2ec88e4901fa", Email = "jenn@gmail.com", EmailConfirmed = true, LockoutEnabled = false, NormalizedEmail = "JENN@GMAIL.COM", NormalizedUserName = "JENN@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEJGkYu27s7g1CoMJPyfFwZLpaAMcz0cLhbxFcqvlDztuTR6lSgl1mIcyQGZTuzHbPw==", PhoneNumberConfirmed = false, SecurityStamp = "e962f8e8-53a2-4af2-aa50-785a49a6cd11", TwoFactorEnabled = false, UserName = "jenn@gmail.com" }
                     );
                 });
 
