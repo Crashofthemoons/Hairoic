@@ -55,7 +55,7 @@ scan = () => {
           target: document.querySelector('#barcode-scanner')
         },
         decoder: {
-            readers : ['ean_reader','ean_8_reader','code_39_reader','code_39_vin_reader','codabar_reader','upc_reader','upc_e_reader']
+            readers : ['ean_reader','ean_8_reader','code_39_reader','code_39_vin_reader','codabar_reader','upc_reader','upc_e_reader', 'code_128_reader', 'i2of5_reader', '2of5_reader']
         }
       },function(err) {
           if (err) { console.log(err); return }
@@ -93,7 +93,7 @@ render() {
                 </Menu.Item>
             {/* <Input ref="search" id="search" style={{ marginLeft: '3em' }} onKeyPress={this.searchBar} transparent inverted placeholder='Search...'/> */}
         </Menu>
-      <div id='barcode-scanner' onDetected={this.newProduct}></div>
+      <div className='top-margin' id='barcode-scanner' onDetected={this.newProduct}></div>
      <Button className={this.state.isHidden} circular icon='barcode' color='teal' size='massive' onClick={this.scan}>Scan a Product</Button>
     </React.Fragment>
     );

@@ -30,7 +30,7 @@ class LogIn extends Component {
                 }))
             })
             .then(() => {
-                this.props.history.push('/scan')
+                this.props.history.push('/')
             })
     }
 
