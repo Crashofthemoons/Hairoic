@@ -5,6 +5,7 @@ import Quagga from 'quagga'; // ES6
 import '../ApplicationViews';
 import { Icon } from 'semantic-ui-react'
 import APIManager from '../APIManager'
+import { Redirect, Link } from "react-router-dom";
 
 class Product extends Component {
 
@@ -17,29 +18,23 @@ class Product extends Component {
     }
 
     render() {
-        return(
-            <div> product </div>
-        )
         
-        // if ( this.props.product) { 
-
-        // return (
-        //     <React.Fragment>
-        //         <Good key={this.props.product.id} product={this.props.product}/>
-        //     </React.Fragment>
-        // )
-
-
-        // } else {
-
-        // return(
-        //     <React.Fragment>
-        //         <Bad key={this.props.product.id} product={this.props.product} />
-        //     </React.Fragment>
-
-        // )
-
-        // }
+        if (this.props.product.product.ingredients.name.includes("Ammonium")) {
+            return(
+                <Redirect  to={{
+                    pathname: "/product/bad",
+                    state: { product: this.state.product }
+                  }} />
+            )
+        } else {
+            return(
+                <Redirect  to={{
+                    pathname: "/product/good",
+                    state: { product: this.state.product }
+                  }} />
+            )
+    
+        }
     }
 }
 

@@ -41,9 +41,12 @@ scan = () => {
                     new: 1
                 })
             })
-            // .catch(this.setState({
-            //     new: 2
-            // }))
+            .catch((error) => {
+                this.setState({
+                    new: 2
+                })
+                console.log(error)
+            })
         }   
         });
     }
