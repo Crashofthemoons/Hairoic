@@ -7,8 +7,10 @@ export default class APIManager {
         return fetch(`https://localhost:5001/api/${section}`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json; charset=utf-8"
+                'Access-Control-Allow-Origin':'*',
+                'Content-Type': 'multipart/form-data'
             },
+            mode: 'cors',
             body: JSON.stringify(body)
         });
     };

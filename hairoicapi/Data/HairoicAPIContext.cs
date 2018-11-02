@@ -465,6 +465,12 @@ namespace HairoicAPI.Models
                     UserId = user.Id,
                     IngredientId = 70,
                     Name = "Ethylhexylglycerin"
+                },
+                new Ingredient()
+                {
+                    UserId = user.Id,
+                    IngredientId = 71,
+                    Name = "Argania Spinosa Kernel Oil"
                 }
             );
 
@@ -475,6 +481,13 @@ namespace HairoicAPI.Models
                     ProductId = 1,
                     Name = "Deva Curl Low Poo Delight",
                     UPC = 850963006195
+                },
+                new Product()
+                {
+                    UserId = user.Id,
+                    ProductId = 2,
+                    Name = "Shea Moisture 100% Pure Argan Oil",
+                    UPC = 764302204022
                 }
             );
 
@@ -634,6 +647,12 @@ namespace HairoicAPI.Models
                     ProductIngredientId = 26,
                     ProductId = 1,
                     IngredientId = 70
+                },
+                new ProductIngredient()
+                {
+                    ProductIngredientId = 27,
+                    ProductId = 2,
+                    IngredientId = 71
                 }
             );
 

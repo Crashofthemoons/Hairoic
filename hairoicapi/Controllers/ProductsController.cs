@@ -42,6 +42,7 @@ namespace HairoicAPI.Controllers
 
             product.Ingredients = productIng;
 
+
             //var applicationDbContext = _context.Product.Include(p => p.ProductType);
             //return View(await applicationDbContext.ToListAsync());
             return Ok(product);

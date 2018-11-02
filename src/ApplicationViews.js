@@ -5,16 +5,31 @@ import { Button, Card, Image } from 'semantic-ui-react'
 import Scan from './Components/Scan'
 import CreateProduct from './Components/CreateProduct'
 import LogIn from './Components/LogIn'
+import Product from './Components/Product'
+import APIManager from './APIManager'
 
 
 class ApplicationViews extends Component {
 
+  state ={
+    product: {}
+
+  }
+
+  getProduct = (code) => {
+    APIManager.getData(`products?upc=${code}`)
+      .then(product => {
+        this.setState({product: product})
+    })
+    // .then(<Redirect to="/product" />)
+    // .catch(<Redirect to="/createproduct"/>)
+  }
 
   render() {
     return (
       <React.Fragment>
         <Route exact path="/" render={(props) => {
-          return <Scan {...props} scan={props.location.state}/>
+          return <Scan {...props} getProduct={this.getProduct} product={props.location.state}/>
         }} />
         <Route exact path="/createproduct" render={(props) => {
           return <CreateProduct {...props} barcode={props.location.state}/>
@@ -22,9 +37,9 @@ class ApplicationViews extends Component {
         <Route exact path="/login" render={(props) => {
           return <LogIn {...props} />
         }} />
-        {/* <Route exact path="/product" render={(props) => {
-          return <CreateProduct {...props} product={props.location.state.product}/>
-        }} /> */}
+        <Route exact path="/product" render={(props) => {
+          return <Product {...props} product={props.location.state}/>
+        }} />
       </React.Fragment>
     );
   }
