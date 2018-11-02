@@ -18,9 +18,9 @@ namespace HairoicAPI.Models
         [Required]
         public long UPC { get; set; }
 
+        [Required]
         public User User { get; set; }
 
-        [Required]
         public string UserId { get; set; }
 
         public virtual ICollection<ProductIngredient> ProductIngredients { get; set; }

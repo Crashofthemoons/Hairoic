@@ -19,7 +19,7 @@ class Product extends Component {
 
     render() {
         
-        if (this.props.product.product.ingredients.name.includes("Ammonium")) {
+        if (this.props.product.product.ingredients.includes("Ammonium")) {
             return(
                 <Redirect  to={{
                     pathname: "/product/bad",

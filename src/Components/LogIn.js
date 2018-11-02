@@ -25,9 +25,7 @@ class LogIn extends Component {
         APIManager.addData('token', body)
             .then(id => id.text())
             .then(id => {
-                localStorage.setItem("Hairoic", JSON.stringify({
-                    id: id
-                }))
+                localStorage.setItem("Hairoic", id)
             })
             .then(() => {
                 this.props.history.push('/')

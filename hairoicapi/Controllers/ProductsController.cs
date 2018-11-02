@@ -139,10 +139,18 @@ namespace HairoicAPI.Controllers
         [Authorize]
         public async Task<IActionResult> PostProduct([FromBody] Product product)
         {
+
+            ModelState.Remove("User");
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            string userName = User.Identity.Name;
+            User user = _context.User.Single(u => u.UserName == userName);
+
+            product.User = user;
 
             _context.Product.Add(product);
             foreach(Ingredient ingredient in product.Ingredients)
@@ -158,6 +166,7 @@ namespace HairoicAPI.Controllers
 
             return CreatedAtAction("GetProduct", new { id = product.ProductId }, product);
         }
+
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
