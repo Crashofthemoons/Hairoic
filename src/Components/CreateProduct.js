@@ -35,18 +35,22 @@ class CreateProduct extends Component {
     };
 
     handleCheckbox = (event, {value}) => {
-        if (!event.currentTarget.querySelector('input').checked) {
-            console.log(event, "checked")
+        let thisEvent = event.currentTarget
+        console.log(event.currentTarget)
+        if (thisEvent.checked) {
             let name = {value}
             const newIng = {
-                name: name.value
+                name: name.value,
+                ingredientId: parseInt(thisEvent.id)
             };
+            console.log(newIng)
             this.state.newProductIngredients.push(newIng);
         } else {
-            this.state.newProductIngredients.pop()
+
+            let filteredArray = this.state.newProductIngredients.filter(item => item.name !== thisEvent.value)
+            this.setState({newProductIngredients: filteredArray});
         }
     }
-    //handleChange = (e, { value }) => this.setState({ value })
 
 
     postIngredient = (event) =>{
@@ -55,7 +59,10 @@ class CreateProduct extends Component {
             console.log(ing)
             APIManager.addData('ingredients', ing)
             .then(newIngredient=>{
-                this.state.ingredients.push(newIngredient);
+                let newArray = this.state.ingredients.push(newIngredient);
+                this.setState({
+                    ingredients: newArray
+                })
             })
 
         }
@@ -65,11 +72,12 @@ class CreateProduct extends Component {
     postProduct = () => {
         let prod = {
             name: this.state.name,
-            upc: this.state.upc,
+            upc: parseInt(this.state.upc),
             ingredients: this.state.newProductIngredients
         }
         console.log(prod)
-        // APIManager.addData('products', prod)
+        APIManager.addData('products', prod)
+        // .then(this.props.history.push('/'))
     }
 
     render() {
@@ -99,7 +107,7 @@ class CreateProduct extends Component {
                 <Input id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
                 {
                     this.state.ingredients.map(ingredient =>
-                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.IngredientId} value={ingredient.name} label={ingredient.name}/>)
+                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} label={ingredient.name}/>)
                 }
 
              <Button circular color='teal' size='normal' onClick={this.postProduct}>Add A Product</Button>

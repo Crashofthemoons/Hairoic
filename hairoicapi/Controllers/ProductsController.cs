@@ -48,12 +48,12 @@ namespace HairoicAPI.Controllers
             return Ok(product);
         }
 
-        [HttpPost]
-        [Authorize]
-        public string Index(string searchString, bool notUsed)
-        {
-            return "From [HttpPost]Index: filter on " + searchString;
-        }
+        //[HttpPost]
+        //[Authorize]
+        //public string Index(string searchString, bool notUsed)
+        //{
+        //    return "From [HttpPost]Index: filter on " + searchString;
+        //}
 
 
         // GET: api/Products/5
