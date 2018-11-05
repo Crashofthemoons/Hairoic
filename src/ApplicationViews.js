@@ -18,20 +18,13 @@ class ApplicationViews extends Component {
 
   }
 
-  getProduct = (code) => {
-    APIManager.getData(`products?upc=${code}`)
-      .then(product => {
-        this.setState({product: product})
-    })
-    // .then(<Redirect to="/product" />)
-    // .catch(<Redirect to="/createproduct"/>)
-  }
+  
 
   render() {
     return (
       <React.Fragment>
         <Route exact path="/" render={(props) => {
-          return <Scan {...props} getProduct={this.getProduct} product={props.location.state}/>
+          return <Scan {...props} product={props.location.state}/>
         }} />
         <Route exact path="/createproduct" render={(props) => {
           return <CreateProduct {...props} barcode={props.location.state}/>

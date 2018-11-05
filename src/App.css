@@ -1,3 +1,8 @@
+div {
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
 .App {
   text-align: center;
 }
@@ -51,5 +56,14 @@
 }
 
 .top-margin {
-  margin-top: 50px !important;
+  margin-top: 75px !important;
+}
+
+.checkbox {
+  display: block !important;
+  margin-left: 10px !important;
+}
+
+.input {
+  margin-left: 10px !important;
 }

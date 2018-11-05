@@ -3,7 +3,7 @@ import '../App.css';
 import Quagga from 'quagga'; // ES6
 //const Quagga = require('quagga').default; // Common JS (important: default)
 import '../ApplicationViews';
-import { Icon, Menu, Image, Input, Checkbox, Button } from 'semantic-ui-react'
+import { Icon, Menu, Image, Input, Checkbox, Button, Container } from 'semantic-ui-react'
 import APIManager from '../APIManager'
 import { Redirect, Link } from "react-router-dom";
 
@@ -90,7 +90,7 @@ class CreateProduct extends Component {
             <React.Fragment>
                 <Menu fixed='top' inverted>
                     <Menu.Item as='a' header onClick={this.resetSearch}>
-                        <Image id="logo" size='tiny' srcSet='' style={{ marginRight: '1.5em' }} />
+                        <Image id="logo" size='tiny' src='../images/hairoic.jpg' style={{ marginRight: '1.5em' }} />
                         <Link
                                 to={{
                                     pathname: "/"
@@ -111,16 +111,20 @@ class CreateProduct extends Component {
                         </Menu.Item>
                     {/* <Input ref="search" id="search" style={{ marginLeft: '3em' }} onKeyPress={this.searchBar} transparent inverted placeholder='Search...'/> */}
                 </Menu>
-                <Icon className='top-margin' name='exclamation circle' size='massive'/>
-                <div> {this.props.barcode.barcode} </div>
-                <Input onChange={this.handleFieldChange} id='name' placeholder='Product Name...' />
-                <Input id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
+                <Container textAlign="center">
+                    <Icon className='top-margin' name='exclamation circle' size='massive'/>
+                    <div>Product Not Available. Add this Product?</div>
+                    <div>Product Barcode: {this.props.barcode.barcode}</div>
+                </Container>
+                <Input className='input' onChange={this.handleFieldChange} id='name' placeholder='Product Name...' />
+                <Input className='input' id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
                 {
                     this.state.ingredients.map(ingredient =>
-                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} className={ingredient.userId} label={ingredient.name}/>)
+                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} className='checkbox' label={ingredient.name}/>)
                 }
-
-             <Button circular color='teal' size='normal' onClick={this.postProduct}>Add A Product</Button>
+                <Container textAlign="center">
+                    <Button circular color='teal' size='normal' onClick={this.postProduct}>Add A Product</Button>
+                </Container>
                 
 
             </React.Fragment>

@@ -79,6 +79,7 @@ namespace HairoicAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("HairoicPolicy");
             app.UseAuthentication();
             app.UseMvc();
         }
