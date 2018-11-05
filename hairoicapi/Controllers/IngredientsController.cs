@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HairoicAPI.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HairoicAPI.Controllers
 {
@@ -26,7 +27,7 @@ namespace HairoicAPI.Controllers
         [HttpGet]
         public IEnumerable<Ingredient> GetIngredient()
         {
-            return _context.Ingredient;
+            return _context.Ingredient.OrderBy(ing => ing.Name);
         }
 
         // GET: api/Ingredients/5
@@ -85,12 +86,21 @@ namespace HairoicAPI.Controllers
 
         // POST: api/Ingredients
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> PostIngredient([FromBody] Ingredient ingredient)
         {
+
+            ModelState.Remove("User");
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            string userName = User.Identity.Name;
+            User user = _context.User.Single(u => u.UserName == userName);
+
+            ingredient.User = user;
 
             _context.Ingredient.Add(ingredient);
             await _context.SaveChangesAsync();

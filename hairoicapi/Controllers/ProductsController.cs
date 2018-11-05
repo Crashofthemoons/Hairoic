@@ -25,7 +25,7 @@ namespace HairoicAPI.Controllers
 
         // GET: api/Products?upc=UPC
         [HttpGet]
-        public async Task<IActionResult> Index(long upc)
+        public async Task<IActionResult> Index(string upc)
         {
             //var product = from m in _context.Product.Include(p => p.Name)
             //               select m;
@@ -48,12 +48,12 @@ namespace HairoicAPI.Controllers
             return Ok(product);
         }
 
-        [HttpPost]
-        [Authorize]
-        public string Index(string searchString, bool notUsed)
-        {
-            return "From [HttpPost]Index: filter on " + searchString;
-        }
+        //[HttpPost]
+        //[Authorize]
+        //public string Index(string searchString, bool notUsed)
+        //{
+        //    return "From [HttpPost]Index: filter on " + searchString;
+        //}
 
 
         // GET: api/Products/5
@@ -139,10 +139,18 @@ namespace HairoicAPI.Controllers
         [Authorize]
         public async Task<IActionResult> PostProduct([FromBody] Product product)
         {
+
+            ModelState.Remove("User");
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            string userName = User.Identity.Name;
+            User user = _context.User.Single(u => u.UserName == userName);
+
+            product.User = user;
 
             _context.Product.Add(product);
             foreach(Ingredient ingredient in product.Ingredients)
@@ -158,6 +166,7 @@ namespace HairoicAPI.Controllers
 
             return CreatedAtAction("GetProduct", new { id = product.ProductId }, product);
         }
+
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]

@@ -8,9 +8,10 @@ export default class APIManager {
             method: "POST",
             headers: {
                 'Access-Control-Allow-Origin':'*',
-                'Content-Type': 'multipart/form-data'
+                "Authorization": `Bearer ${localStorage.getItem("Hairoic")}`,
+                "Content-Type": "application/json; charset=utf-8"
             },
-            mode: 'cors',
+            // mode: 'cors',
             body: JSON.stringify(body)
         });
     };

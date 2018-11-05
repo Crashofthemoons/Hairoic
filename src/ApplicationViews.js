@@ -6,6 +6,8 @@ import Scan from './Components/Scan'
 import CreateProduct from './Components/CreateProduct'
 import LogIn from './Components/LogIn'
 import Product from './Components/Product'
+import Bad from './Components/Bad'
+import Good from './Components/Good'
 import APIManager from './APIManager'
 
 
@@ -39,6 +41,12 @@ class ApplicationViews extends Component {
         }} />
         <Route exact path="/product" render={(props) => {
           return <Product {...props} product={props.location.state}/>
+        }} />
+        <Route exact path="/product/good" render={(props) => {
+          return <Good {...props} product={props.location.state}/>
+        }} />
+        <Route exact path="/product/bad" render={(props) => {
+          return <Bad {...props} product={props.location.state}/>
         }} />
       </React.Fragment>
     );

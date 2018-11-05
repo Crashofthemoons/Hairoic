@@ -480,14 +480,14 @@ namespace HairoicAPI.Models
                     UserId = user.Id,
                     ProductId = 1,
                     Name = "Deva Curl Low Poo Delight",
-                    UPC = 850963006195
+                    UPC = "850963006195"
                 },
                 new Product()
                 {
                     UserId = user.Id,
                     ProductId = 2,
                     Name = "Shea Moisture 100% Pure Argan Oil",
-                    UPC = 764302204022
+                    UPC = "764302204022"
                 }
             );
 
