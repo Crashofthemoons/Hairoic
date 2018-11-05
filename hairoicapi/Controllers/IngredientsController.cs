@@ -27,7 +27,7 @@ namespace HairoicAPI.Controllers
         [HttpGet]
         public IEnumerable<Ingredient> GetIngredient()
         {
-            return _context.Ingredient;
+            return _context.Ingredient.OrderBy(ing => ing.Name);
         }
 
         // GET: api/Ingredients/5

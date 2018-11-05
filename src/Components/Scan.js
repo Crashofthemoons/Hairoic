@@ -14,9 +14,18 @@ export default class Scan extends Component {
 
     state={
         isHidden: "notHidden",
-        barcode: 0,
+        barcode: "",
         product: {},
         new: 0
+    }
+
+    logOut = () => {
+        localStorage.removeItem("SpecTrek")
+        this.setState({
+            currentUser: "",
+            role: ""
+        })
+        this.props.history.push("/")
     }
 
 
@@ -98,8 +107,13 @@ render() {
             <React.Fragment>
                 <Menu fixed='top' inverted>
                     <Menu.Item as='a' header onClick={this.resetSearch}>
-                        <Image id="logo" size='tiny' srcSet='' style={{ marginRight: '1.5em' }} />
-                        Hairoic
+                        <Image id="logo" size='tiny' srcSet='../images/logo.pdf' style={{ marginRight: '1.5em' }} />
+                        <Link
+                                to={{
+                                    pathname: "/"
+                                }}>
+                                Hairoic
+                            </Link>
                         </Menu.Item>
                         <Menu.Item>
                             <Link

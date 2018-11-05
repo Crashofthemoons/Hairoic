@@ -25,7 +25,7 @@ namespace HairoicAPI.Controllers
 
         // GET: api/Products?upc=UPC
         [HttpGet]
-        public async Task<IActionResult> Index(long upc)
+        public async Task<IActionResult> Index(string upc)
         {
             //var product = from m in _context.Product.Include(p => p.Name)
             //               select m;

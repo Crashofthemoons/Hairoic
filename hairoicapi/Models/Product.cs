@@ -16,9 +16,9 @@ namespace HairoicAPI.Models
         public string Name { get; set; }
 
         [Required]
-        public long UPC { get; set; }
+        public string UPC { get; set; }
 
-        [Required]
+        //[Required]
         public User User { get; set; }
 
         public string UserId { get; set; }

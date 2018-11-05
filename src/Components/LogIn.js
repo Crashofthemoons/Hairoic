@@ -36,9 +36,41 @@ class LogIn extends Component {
 
     }
 
+    logOut = () => {
+        localStorage.removeItem("SpecTrek")
+        this.setState({
+            currentUser: "",
+            role: ""
+        })
+        this.props.history.push("/")
+    }
+
     render() {
         return(
             <React.Fragment>
+                <Menu fixed='top' inverted>
+                    <Menu.Item as='a' header onClick={this.resetSearch}>
+                        <Image id="logo" size='tiny' srcSet='../images/logo.pdf' style={{ marginRight: '1.5em' }} />
+                        <Link
+                                to={{
+                                    pathname: "/"
+                                }}>
+                                Hairoic
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Link
+                                to={{
+                                    pathname: "/login"
+                                }}>
+                                Log In
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item onClick={this.logOut}>
+                            Log Out
+                        </Menu.Item>
+                    {/* <Input ref="search" id="search" style={{ marginLeft: '3em' }} onKeyPress={this.searchBar} transparent inverted placeholder='Search...'/> */}
+                </Menu>
                 <div className='top-margin'>
                 <Input iconPosition='left' required placeholder='Email' id='username' onChange={this.handleFieldChange}>
                 <Icon name='at' />

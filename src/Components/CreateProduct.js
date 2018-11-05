@@ -17,6 +17,16 @@ class CreateProduct extends Component {
         ingredients: [],
         newProductIngredients: []
     }
+
+    logOut = () => {
+        localStorage.removeItem("SpecTrek")
+        this.setState({
+            currentUser: "",
+            role: ""
+        })
+        this.props.history.push("/")
+    }
+
     componentDidMount() {
         APIManager.getData('ingredients')
         .then(ingredients =>{
@@ -58,13 +68,8 @@ class CreateProduct extends Component {
             let ing = { name: this.state.ingredient}
             console.log(ing)
             APIManager.addData('ingredients', ing)
-            .then(newIngredient=>{
-                let newArray = this.state.ingredients.push(newIngredient);
-                this.setState({
-                    ingredients: newArray
-                })
-            })
-
+            .then(APIManager.getData('ingredients'))
+            .then(window.location.reload())
         }
     }
 
@@ -72,12 +77,12 @@ class CreateProduct extends Component {
     postProduct = () => {
         let prod = {
             name: this.state.name,
-            upc: parseInt(this.state.upc),
+            upc: this.state.upc,
             ingredients: this.state.newProductIngredients
         }
         console.log(prod)
         APIManager.addData('products', prod)
-        // .then(this.props.history.push('/'))
+        .then(this.props.history.push('/'))
     }
 
     render() {
@@ -86,7 +91,12 @@ class CreateProduct extends Component {
                 <Menu fixed='top' inverted>
                     <Menu.Item as='a' header onClick={this.resetSearch}>
                         <Image id="logo" size='tiny' srcSet='' style={{ marginRight: '1.5em' }} />
-                        Hairoic
+                        <Link
+                                to={{
+                                    pathname: "/"
+                                }}>
+                                Hairoic
+                            </Link>
                         </Menu.Item>
                         <Menu.Item>
                             <Link
@@ -107,7 +117,7 @@ class CreateProduct extends Component {
                 <Input id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
                 {
                     this.state.ingredients.map(ingredient =>
-                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} label={ingredient.name}/>)
+                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} className={ingredient.userId} label={ingredient.name}/>)
                 }
 
              <Button circular color='teal' size='normal' onClick={this.postProduct}>Add A Product</Button>
