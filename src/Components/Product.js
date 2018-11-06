@@ -13,7 +13,8 @@ class Product extends Component {
         product: this.props.history.location.state,
         ingredients: [],
         sAnds: ["Ammonium", "Alkylbenzene Sulfonate", "Ammonium Laureth", "Lauryl Sulfate", "Sodium Xylenesulfonate", "Dioctyl Sodium Sulfosuccinate", "Ethyl PEG-15 Cocamine Sulfate", "Sodium C14-16 Olefin Sulfonate", "Sodium Cocoyl Sarrcosinate", "Sodium Laureth", "Sodium Myreth", "Sodium Lauryl Sulfoacetate", "TEA-Dodecylbenzenesulfonate", "Cetearyl Methiocne", "Cetyl Dimethicone", "Dimethicone", "Dimethiconol", "Stearyl Dimethicone", "Amodimethicone", "Cyclomethicone", "Cyclopentasiloxane", "Trimethysilylamodimethicone", "Behenoxy Dimethicone", "Stearoxy Dimethicone"],
-        bad: null
+        bad: null,
+        badIng: []
     }
 
     componentWillMount() {
@@ -36,11 +37,11 @@ class Product extends Component {
     }
 
     checkProduct = () => {
-        // let newArray = this.state.ingredients.filter(this.state.sAnds.foreach(ing=>{ing}))
-        // console.log(newArray)
         if (this.state.ingredients.some(ing => this.state.sAnds.includes(ing))) {
+            let newArray = this.state.ingredients.filter((word) => this.state.sAnds.includes(word))
             this.setState({
-                bad: true
+                bad: true,
+                badIng: newArray
             })
             console.log("bad")
         }else{
@@ -73,7 +74,7 @@ class Product extends Component {
             return(
                 <Redirect  to={{
                     pathname: "/product/bad",
-                    state: { product: this.state.product.product }
+                    state: { product: this.state.product.product, badIng: this.state.badIng }
                   }} />
 
             )

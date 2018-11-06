@@ -29,11 +29,7 @@ export default class Scan extends Component {
     }
 
     logOut = () => {
-        localStorage.removeItem("SpecTrek")
-        this.setState({
-            currentUser: "",
-            role: ""
-        })
+        localStorage.removeItem("Hairoic")
         this.props.history.push("/")
     }
 

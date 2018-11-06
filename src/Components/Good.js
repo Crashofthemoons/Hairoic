@@ -50,7 +50,10 @@ class Good extends Component {
                 </Menu>
                 <Container textAlign="center">
                     <Icon className='top-margin' name='check circle' size='massive' color='green'/>
+                    <br/>
                     <div>{this.state.product.product.name} has NO HAIRY SCARIES!</div>
+                    <br/>
+                    <Button circular color='teal' size='large' onClick={()=>this.props.history.push('/')}>Scan Another Product</Button>
                 </Container>
             </React.Fragment>
         )
