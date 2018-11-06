@@ -10,7 +10,8 @@ import { Redirect, Link } from "react-router-dom";
 class Bad extends Component {
 
     state = {
-        product: this.props.location.state
+        product: this.props.location.state,
+        badIng: this.props.location.state.badIng
     }
 
     componentDidMount() {
@@ -18,11 +19,7 @@ class Bad extends Component {
     }
 
     logOut = () => {
-        localStorage.removeItem("SpecTrek")
-        this.setState({
-            currentUser: "",
-            role: ""
-        })
+        localStorage.removeItem("Hairoic")
         this.props.history.push("/")
     }
 
@@ -54,7 +51,16 @@ class Bad extends Component {
                 </Menu>
                 <Container textAlign="center">
                     <Icon className='top-margin' name='x circle' size='massive' color='red'/>
+                    <br/>
                     <div>{this.state.product.product.name} has HAIRY SCARIES!</div>
+                    <br/>
+                    <div>Hairy Scaries included in this product:</div>
+                    {
+                        this.state.badIng.map(ingredient =>
+                             <div>{ingredient}</div>)
+                    }
+                    <br/>
+                    <Button circular color='teal' size='large' onClick={()=>this.props.history.push('/')}>Scan Another Product</Button>
                 </Container>
             </React.Fragment>
         )

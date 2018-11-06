@@ -11,6 +11,7 @@ import { Redirect, Link } from "react-router-dom";
 
 
 export default class Scan extends Component {
+    _isMounted = false;
 
     state={
         isHidden: "notHidden",
@@ -19,12 +20,16 @@ export default class Scan extends Component {
         new: 0
     }
 
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
+
     logOut = () => {
-        localStorage.removeItem("SpecTrek")
-        this.setState({
-            currentUser: "",
-            role: ""
-        })
+        localStorage.removeItem("Hairoic")
         this.props.history.push("/")
     }
 
@@ -41,20 +46,26 @@ scan = () => {
               let code = (last_result)[0];
               last_result = [];
               Quagga.stop();
-              this.setState({barcode: last_code},()=> {console.log(last_code)});
+            //   this.setState({barcode: last_code},()=> {console.log(last_code)});
             APIManager.getData(`products?upc=${last_code}`)
             .then(product => {
+                if (this._isMounted) {
+                }
                 console.log("this product exists")
-                this.setState({
-                    product: product,
-                    new: 1
-                })
+                this.props.history.push({pathname:'/product', state:{product: product}})
+                // this.setState({
+                //     product: product,
+                //     new: 1
+                // })
             })
             .catch((error) => {
+                if (this._isMounted) {
+                }
                 console.log("this product does not exist")
-                this.setState({
-                    new: 2
-                })
+                this.props.history.push({pathname:'/createproduct', state: {barcode: last_code}})
+                // this.setState({
+                //     new: 2
+                // })
                 console.log(error)
             })
         }   
@@ -83,27 +94,23 @@ scan = () => {
     this.setState({isHidden: "hidden"});
 }
 
-newProduct = () =>{
-    console.log("hello")
-}
-
 render() {
-    if (this.state.new === 1) {
-        return(
-            <Redirect  to={{
-                pathname: "/product",
-                state: { product: this.state.product }
-              }} />
-        )
-    } else if (this.state.new === 2) {
-        return(
-            <Redirect  to={{
-                pathname: "/createproduct",
-                state: { barcode: this.state.barcode }
-              }} />
-        )
+    // if (this.state.new === 1) {
+    //     return(
+    //         <Redirect  to={{
+    //             pathname: "/product",
+    //             state: { product: this.state.product }
+    //           }} />
+    //     )
+    // } else if (this.state.new === 2) {
+    //     return(
+    //         <Redirect  to={{
+    //             pathname: "/createproduct",
+    //             state: { barcode: this.state.barcode }
+    //           }} />
+    //     )
 
-    } else {
+    // } else {
         return (
             <React.Fragment>
                 <Menu fixed='top' inverted>
@@ -129,7 +136,7 @@ render() {
                         </Menu.Item>
                     {/* <Input ref="search" id="search" style={{ marginLeft: '3em' }} onKeyPress={this.searchBar} transparent inverted placeholder='Search...'/> */}
                 </Menu>
-              <div className='top-margin' id='barcode-scanner' onDetected={this.newProduct}></div>
+              <div className='top-margin' id='barcode-scanner'></div>
               <Container textAlign="center">
                 <div>Welcome to Hairoic. Scan a product to see if it contains those pesky Silicones or Sulfates that are oh-so-harmful to your luscious locks!</div>
                 <Button className={this.state.isHidden} circular icon='barcode' color='teal' size='massive' onClick={this.scan}>Scan a Product</Button>
@@ -137,7 +144,7 @@ render() {
              
             </React.Fragment>
             );
-    }
+    // }
     
   }
 }
