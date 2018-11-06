@@ -50,7 +50,7 @@ namespace HairoicAPI.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,7 +61,7 @@ namespace HairoicAPI.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
                     UPC = table.Column<string>(nullable: false),
-                    UserId = table.Column<string>(nullable: false)
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,7 +71,7 @@ namespace HairoicAPI.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,96 +91,91 @@ namespace HairoicAPI.Migrations
                         column: x => x.IngredientId,
                         principalTable: "Ingredient",
                         principalColumn: "IngredientId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_ProductIngredient_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
                         principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "dbdc519b-06fb-4fd9-ba7a-141effba3719", 0, "abb8abf2-17f0-48e9-9823-7799aefcf5f8", "jenn@gmail.com", true, false, null, "JENN@GMAIL.COM", "JENN@GMAIL.COM", "AQAAAAEAACcQAAAAEF9iMJQCSSYWqbPgwGU2FsnvwQdyiosJQP0Owu/6byuK+EFC77ZUsZHPoM/Xhxtgvw==", null, false, "6e78638d-8e96-4d79-8d47-5b4c8b25f13c", false, "jenn@gmail.com" });
+                values: new object[] { "811e68cc-939e-4300-9561-bb4834326c31", 0, "3f2e8742-d739-41ff-afc1-6322f5972bd2", "jenn@gmail.com", true, false, null, "JENN@GMAIL.COM", "JENN@GMAIL.COM", "AQAAAAEAACcQAAAAEA4yzWwxxZNTRdksv3mfiBuvtSo7KLcE6YqsNlOvB8GOKc4CX7xdX2cdEcjK2i+j2g==", null, false, "5d572cd0-d71c-40f2-80b4-ed8e185bd65c", false, "jenn@gmail.com" });
 
             migrationBuilder.InsertData(
                 table: "Ingredient",
                 columns: new[] { "IngredientId", "Name", "UserId" },
                 values: new object[,]
                 {
-                    { 1, "Alkylbenzene Sulfonate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 53, "Linum Usitatissimum (Linseed) Seed Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 52, "PEG-40 Hydrogenated Castor Oil", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 51, "PEG-60 Almond Glycerides", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 50, "Glycerin", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 49, "Sodium Benzoate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 48, "Polyquaternium-7", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 54, "Salvia Hispanica Seed Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 47, "Sodium Chloride", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 45, "Glycol Distearate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 44, "Water", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 43, "Red 33", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 42, "Blue 1", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 41, "Methylisothiazolinone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 40, "Methylchloroisothiazolinone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 46, "Zinc Carbonate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 39, "Magnesium Carbonate Hydroxide", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 55, "Hydrolyzed Rice Protein", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 57, "Melissa Officinalis Leaf Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 71, "Argania Spinosa Kernel Oil", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 70, "Ethylhexylglycerin", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 69, "Phenoxyethanol", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 68, "Aminomethyl Propanol", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 67, "Hydroxypropyl Guar Hydroxypropyltrimonium Chloride", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 66, "Propylene Glycol", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 56, "Nymphaea Lotus Flower Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 65, "Polyquaternium-10", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 63, "Hydroxyethylcellulose", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 62, "Achillea Millefolium Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 61, "Rosmarinus Officinalis (Rosemary) Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 60, "Chamomilla Recutita (Matricaria) Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 59, "Cymbopogon Schoenanthus Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 58, "Humulus Lupulus (Hops) Extract", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 64, "PEG-7 Glyceryl Cocoate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 38, "Guar Hydroxypropyltrimonium Chloride", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 37, "Sodium Benzoate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 18, "Disodium Cocoamphodiacetate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 17, "Cocoamphodipropionate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 16, "Cocoamphoacetate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 15, "Coco Betaine", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 14, "Cocamidopropyl Betaine", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 13, "TEA-Dodecylbenzenesulfonate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 12, "Sodium Lauryl Sulfoacetate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 36, "Fragrance", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 11, "Sodium Myreth", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 9, "Sodium Cocoyl Sarcosinate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 8, "Sodium C14-16 Cocamine Sulfate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 7, "Ethyl PEG-15 Cocamine Sulfate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 6, "Dioctyl Sodium Sulfosuccinate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 5, "Sodium Xylenesulfonate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 4, "Ammonium", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 10, "Sodium Laureth", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 3, "Lauryl Sulfate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 19, "Lauroamphoacetate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 21, "Cetearyl Methiocne", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 35, "Sodium Chloride", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 34, "Zinc Carbonate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 33, "Glycol Distearate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 32, "Water", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 31, "Pyrithicone Zinc 1%", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 30, "Stearoxy Dimethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 20, "Sodium Cocoyl Isethionate", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 29, "Behenoxy Demethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 27, "Cyclopentasiloxane", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 26, "Cyclomethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 25, "Amodimethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 24, "Stearyl Dimethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 23, "Dimethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 22, "Cetyl Dimethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 28, "Trimethysilylamodimethicone", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 2, "Ammonium Laureth", "dbdc519b-06fb-4fd9-ba7a-141effba3719" }
+                    { 1, "Alkylbenzene Sulfonate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 37, "Sodium Benzoate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 38, "Guar Hydroxypropyltrimonium Chloride", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 39, "Magnesium Carbonate Hydroxide", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 40, "Methylchloroisothiazolinone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 41, "Methylisothiazolinone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 42, "Blue 1", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 43, "Red 33", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 48, "Polyquaternium-7", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 50, "Glycerin", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 51, "PEG-60 Almond Glycerides", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 52, "PEG-40 Hydrogenated Castor Oil", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 53, "Linum Usitatissimum (Linseed) Seed Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 54, "Salvia Hispanica Seed Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 55, "Hydrolyzed Rice Protein", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 36, "Fragrance", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 56, "Nymphaea Lotus Flower Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 58, "Humulus Lupulus (Hops) Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 59, "Cymbopogon Schoenanthus Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 60, "Chamomilla Recutita (Matricaria) Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 61, "Rosmarinus Officinalis (Rosemary) Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 62, "Achillea Millefolium Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 63, "Hydroxyethylcellulose", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 64, "PEG-7 Glyceryl Cocoate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 65, "Polyquaternium-10", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 66, "Propylene Glycol", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 67, "Hydroxypropyl Guar Hydroxypropyltrimonium Chloride", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 68, "Aminomethyl Propanol", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 69, "Phenoxyethanol", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 70, "Ethylhexylglycerin", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 71, "Argania Spinosa Kernel Oil", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 57, "Melissa Officinalis Leaf Extract", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 35, "Sodium Chloride", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 34, "Zinc Carbonate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 33, "Glycol Distearate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 2, "Ammonium Laureth", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 3, "Lauryl Sulfate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 4, "Ammonium", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 5, "Sodium Xylenesulfonate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 6, "Dioctyl Sodium Sulfosuccinate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 7, "Ethyl PEG-15 Cocamine Sulfate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 8, "Sodium C14-16 Cocamine Sulfate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 9, "Sodium Cocoyl Sarcosinate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 10, "Sodium Laureth", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 11, "Sodium Myreth", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 12, "Sodium Lauryl Sulfoacetate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 13, "TEA-Dodecylbenzenesulfonate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 14, "Cocamidopropyl Betaine", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 15, "Coco Betaine", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 16, "Cocoamphoacetate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 17, "Cocoamphodipropionate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 18, "Disodium Cocoamphodiacetate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 32, "Water", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 31, "Pyrithicone Zinc 1%", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 30, "Stearoxy Dimethicone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 29, "Behenoxy Demethicone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 28, "Trimethysilylamodimethicone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 27, "Cyclopentasiloxane", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 26, "Cyclomethicone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 24, "Stearyl Dimethicone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 23, "Dimethicone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 22, "Cetyl Dimethicone", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 21, "Cetearyl Methiocne", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 20, "Sodium Cocoyl Isethionate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 19, "Lauroamphoacetate", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 25, "Amodimethicone", "811e68cc-939e-4300-9561-bb4834326c31" }
                 });
 
             migrationBuilder.InsertData(
@@ -188,8 +183,8 @@ namespace HairoicAPI.Migrations
                 columns: new[] { "ProductId", "Name", "UPC", "UserId" },
                 values: new object[,]
                 {
-                    { 1, "Deva Curl Low Poo Delight", "850963006195", "dbdc519b-06fb-4fd9-ba7a-141effba3719" },
-                    { 2, "Shea Moisture 100% Pure Argan Oil", "764302204022", "dbdc519b-06fb-4fd9-ba7a-141effba3719" }
+                    { 1, "Deva Curl Low Poo Delight", "850963006195", "811e68cc-939e-4300-9561-bb4834326c31" },
+                    { 2, "Shea Moisture 100% Pure Argan Oil", "764302204022", "811e68cc-939e-4300-9561-bb4834326c31" }
                 });
 
             migrationBuilder.InsertData(
@@ -197,7 +192,7 @@ namespace HairoicAPI.Migrations
                 columns: new[] { "ProductIngredientId", "IngredientId", "ProductId" },
                 values: new object[,]
                 {
-                    { 1, 44, 1 },
+                    { 1, 32, 1 },
                     { 25, 69, 1 },
                     { 24, 68, 1 },
                     { 23, 67, 1 },

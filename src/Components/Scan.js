@@ -3,7 +3,7 @@ import '../App.css';
 import Quagga from 'quagga'; // ES6
 //const Quagga = require('quagga').default; // Common JS (important: default)
 import '../ApplicationViews';
-import { Button, Menu, Icon, Image, Input } from 'semantic-ui-react'
+import { Button, Menu, Icon, Image, Input, Container } from 'semantic-ui-react'
 import APIManager from '../APIManager'
 import CreateProduct from './CreateProduct'
 import LogIn from './LogIn'
@@ -41,16 +41,17 @@ scan = () => {
               let code = (last_result)[0];
               last_result = [];
               Quagga.stop();
-              console.log(code);
-              this.setState({barcode: code});
-            APIManager.getData(`products?upc=${code}`)
+              this.setState({barcode: last_code},()=> {console.log(last_code)});
+            APIManager.getData(`products?upc=${last_code}`)
             .then(product => {
+                console.log("this product exists")
                 this.setState({
                     product: product,
                     new: 1
                 })
             })
             .catch((error) => {
+                console.log("this product does not exist")
                 this.setState({
                     new: 2
                 })
@@ -107,13 +108,13 @@ render() {
             <React.Fragment>
                 <Menu fixed='top' inverted>
                     <Menu.Item as='a' header onClick={this.resetSearch}>
-                        <Image id="logo" size='tiny' srcSet='../images/logo.pdf' style={{ marginRight: '1.5em' }} />
+                        <Image id="logo"circular size='tiny' src='../images/hairoic.jpg' alt="hairoic" style={{ marginRight: '1.5em' }} />
                         <Link
-                                to={{
-                                    pathname: "/"
-                                }}>
-                                Hairoic
-                            </Link>
+                            to={{
+                                pathname: "/"
+                            }}>
+                            Hairoic
+                        </Link>
                         </Menu.Item>
                         <Menu.Item>
                             <Link
@@ -129,8 +130,10 @@ render() {
                     {/* <Input ref="search" id="search" style={{ marginLeft: '3em' }} onKeyPress={this.searchBar} transparent inverted placeholder='Search...'/> */}
                 </Menu>
               <div className='top-margin' id='barcode-scanner' onDetected={this.newProduct}></div>
-             <Button className={this.state.isHidden} circular icon='barcode' color='teal' size='massive' onClick={this.scan}>Scan a Product</Button>
-             
+              <Container textAlign="center">
+                <div>Welcome to Hairoic. Scan a product to see if it contains those pesky Silicones or Sulfates that are oh-so-harmful to your luscious locks!</div>
+                <Button className={this.state.isHidden} circular icon='barcode' color='teal' size='massive' onClick={this.scan}>Scan a Product</Button>
+             </Container>
              
             </React.Fragment>
             );

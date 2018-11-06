@@ -307,38 +307,8 @@ namespace HairoicAPI.Models
                 new Ingredient()
                 {
                     UserId = user.Id,
-                    IngredientId = 44,
-                    Name = "Water"
-                },
-                new Ingredient()
-                {
-                    UserId = user.Id,
-                    IngredientId = 45,
-                    Name = "Glycol Distearate"
-                },
-                new Ingredient()
-                {
-                    UserId = user.Id,
-                    IngredientId = 46,
-                    Name = "Zinc Carbonate"
-                },
-                new Ingredient()
-                {
-                    UserId = user.Id,
-                    IngredientId = 47,
-                    Name = "Sodium Chloride"
-                },
-                new Ingredient()
-                {
-                    UserId = user.Id,
                     IngredientId = 48,
                     Name = "Polyquaternium-7"
-                },
-                new Ingredient()
-                {
-                    UserId = user.Id,
-                    IngredientId = 49,
-                    Name = "Sodium Benzoate"
                 },
                 new Ingredient()
                 {
@@ -496,7 +466,7 @@ namespace HairoicAPI.Models
                 {
                     ProductIngredientId = 1,
                     ProductId = 1,
-                    IngredientId = 44
+                    IngredientId = 32
                 },
                 new ProductIngredient()
                 {
