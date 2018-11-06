@@ -2,7 +2,7 @@
 
 This is my Back-End Capstone for Nashville Software School.
 
-![](pics/Hairoic.pgn)
+![](pics/Hairoic.PNG)
 
 # Tools:
 
@@ -28,16 +28,16 @@ run:
 ### `npm start`
 inside of src file
 
-![](pics/HairoicScan.png)
+![](pics/HairoicScan.PNG)
 Make sure you allow camera access.
 You can scan any product to see if there are Silicones or Sulfates in the said product.
 
 
-![](pics/GoodProd.png)
+![](pics/GoodProd.PNG)
 If the scanned product is free of Silicones and Sulfates, this will appear.
 
-![](pics/BadProd.png)
+![](pics/BadProd.PNG)
 If the scanned product has Silicones and Sulfates, it will tell you what ingredients are harmful.
 
-![](pics/NewProd.png)
+![](pics/NewProd.PNG)
 If the product is not in the database, feel free to add it, you must me logged in to do so.
