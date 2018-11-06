@@ -3,7 +3,7 @@ import '../App.css';
 import Quagga from 'quagga'; // ES6
 //const Quagga = require('quagga').default; // Common JS (important: default)
 import '../ApplicationViews';
-import { Icon, Button, Menu, Image, Input } from 'semantic-ui-react'
+import { Icon, Button, Menu, Image, Input, Container } from 'semantic-ui-react'
 import APIManager from '../APIManager'
 import { Redirect, Link } from "react-router-dom";
 
@@ -31,7 +31,7 @@ class Good extends Component {
             <React.Fragment>
                 <Menu fixed='top' inverted>
                     <Menu.Item as='a' header onClick={this.resetSearch}>
-                        <Image id="logo" size='tiny' srcSet='../images/logo.pdf' style={{ marginRight: '1.5em' }} />
+                        <Image id="logo" size='tiny' src='../images/hairoic.jpg' style={{ marginRight: '1.5em' }} />
                         <Link
                                 to={{
                                     pathname: "/"
@@ -52,9 +52,10 @@ class Good extends Component {
                         </Menu.Item>
                     {/* <Input ref="search" id="search" style={{ marginLeft: '3em' }} onKeyPress={this.searchBar} transparent inverted placeholder='Search...'/> */}
                 </Menu>
-                <div className='top-margin'>
-                    <Icon name='check circle' size='massive' color='green'/>
-                </div>
+                <Container textAlign="center">
+                    <Icon className='top-margin' name='check circle' size='massive' color='green'/>
+                    <div>{this.state.product.product.name} has NO HAIRY SCARIES!</div>
+                </Container>
             </React.Fragment>
         )
         
