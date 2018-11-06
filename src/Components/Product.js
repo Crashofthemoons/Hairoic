@@ -10,7 +10,7 @@ import { Redirect, Link } from "react-router-dom";
 class Product extends Component {
 
     state = {
-        product: this.props.location.state,
+        product: this.props.history.location.state,
         ingredients: [],
         sAnds: ["Ammonium", "Alkylbenzene Sulfonate", "Ammonium Laureth", "Lauryl Sulfate", "Sodium Xylenesulfonate", "Dioctyl Sodium Sulfosuccinate", "Ethyl PEG-15 Cocamine Sulfate", "Sodium C14-16 Olefin Sulfonate", "Sodium Cocoyl Sarrcosinate", "Sodium Laureth", "Sodium Myreth", "Sodium Lauryl Sulfoacetate", "TEA-Dodecylbenzenesulfonate", "Cetearyl Methiocne", "Cetyl Dimethicone", "Dimethicone", "Dimethiconol", "Stearyl Dimethicone", "Amodimethicone", "Cyclomethicone", "Cyclopentasiloxane", "Trimethysilylamodimethicone", "Behenoxy Dimethicone", "Stearoxy Dimethicone"],
         bad: null
@@ -36,7 +36,8 @@ class Product extends Component {
     }
 
     checkProduct = () => {
-        console.log(this.state.ingredients, this.state.sAnds)
+        // let newArray = this.state.ingredients.filter(this.state.sAnds.foreach(ing=>{ing}))
+        // console.log(newArray)
         if (this.state.ingredients.some(ing => this.state.sAnds.includes(ing))) {
             this.setState({
                 bad: true

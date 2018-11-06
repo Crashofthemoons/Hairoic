@@ -68,8 +68,14 @@ class CreateProduct extends Component {
             let ing = { name: this.state.ingredient}
             console.log(ing)
             APIManager.addData('ingredients', ing)
-            .then(APIManager.getData('ingredients'))
-            .then(window.location.reload())
+            .then(()=>APIManager.getData('ingredients'))
+            .then(ings=>{
+                console.log(ings);
+                this.setState({
+                ingredients: ings})
+            })
+            console.log(this.refs.ing.inputRef.value) //if you want the search bar to clear when you press enter
+            this.refs.ing.inputRef.value= ""
         }
     }
 
@@ -117,7 +123,7 @@ class CreateProduct extends Component {
                     <div>Product Barcode: {this.props.barcode.barcode}</div>
                 </Container>
                 <Input className='input' onChange={this.handleFieldChange} id='name' placeholder='Product Name...' />
-                <Input className='input' id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
+                <Input ref='ing' className='input' id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
                 {
                     this.state.ingredients.map(ingredient =>
                         <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} className='checkbox' label={ingredient.name}/>)

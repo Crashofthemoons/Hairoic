@@ -50,25 +50,27 @@ scan = () => {
               let code = (last_result)[0];
               last_result = [];
               Quagga.stop();
-              this.setState({barcode: last_code},()=> {console.log(last_code)});
+            //   this.setState({barcode: last_code},()=> {console.log(last_code)});
             APIManager.getData(`products?upc=${last_code}`)
             .then(product => {
                 if (this._isMounted) {
-                    console.log("this product exists")
-                    this.setState({
-                        product: product,
-                        new: 1
-                    })
                 }
+                console.log("this product exists")
+                this.props.history.push({pathname:'/product', state:{product: product}})
+                // this.setState({
+                //     product: product,
+                //     new: 1
+                // })
             })
             .catch((error) => {
                 if (this._isMounted) {
-                    console.log("this product does not exist")
-                    this.setState({
-                        new: 2
-                    })
-                    console.log(error)
                 }
+                console.log("this product does not exist")
+                this.props.history.push({pathname:'/createproduct', state: {barcode: last_code}})
+                // this.setState({
+                //     new: 2
+                // })
+                console.log(error)
             })
         }   
         });
@@ -97,22 +99,22 @@ scan = () => {
 }
 
 render() {
-    if (this.state.new === 1) {
-        return(
-            <Redirect  to={{
-                pathname: "/product",
-                state: { product: this.state.product }
-              }} />
-        )
-    } else if (this.state.new === 2) {
-        return(
-            <Redirect  to={{
-                pathname: "/createproduct",
-                state: { barcode: this.state.barcode }
-              }} />
-        )
+    // if (this.state.new === 1) {
+    //     return(
+    //         <Redirect  to={{
+    //             pathname: "/product",
+    //             state: { product: this.state.product }
+    //           }} />
+    //     )
+    // } else if (this.state.new === 2) {
+    //     return(
+    //         <Redirect  to={{
+    //             pathname: "/createproduct",
+    //             state: { barcode: this.state.barcode }
+    //           }} />
+    //     )
 
-    } else {
+    // } else {
         return (
             <React.Fragment>
                 <Menu fixed='top' inverted>
@@ -146,7 +148,7 @@ render() {
              
             </React.Fragment>
             );
-    }
+    // }
     
   }
 }
