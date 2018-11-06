@@ -18,11 +18,7 @@ class Good extends Component {
     }
 
     logOut = () => {
-        localStorage.removeItem("SpecTrek")
-        this.setState({
-            currentUser: "",
-            role: ""
-        })
+        localStorage.removeItem("Hairoic")
         this.props.history.push("/")
     }
 
@@ -33,11 +29,11 @@ class Good extends Component {
                     <Menu.Item as='a' header onClick={this.resetSearch}>
                         <Image id="logo" size='tiny' src='../images/hairoic.jpg' style={{ marginRight: '1.5em' }} />
                         <Link
-                                to={{
-                                    pathname: "/"
-                                }}>
-                                Hairoic
-                            </Link>
+                            to={{
+                                pathname: "/"
+                            }}>
+                            Hairoic
+                        </Link>
                         </Menu.Item>
                         <Menu.Item>
                             <Link
