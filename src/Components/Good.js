@@ -53,6 +53,8 @@ class Good extends Component {
                     <br/>
                     <div>{this.state.product.product.name} has NO HAIRY SCARIES!</div>
                     <br/>
+                    <div>There are no Silicones or Sulfates in this product</div>
+                    <br/>
                     <Button circular color='teal' size='large' onClick={()=>this.props.history.push('/')}>Scan Another Product</Button>
                 </Container>
             </React.Fragment>

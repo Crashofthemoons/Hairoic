@@ -23,9 +23,19 @@ class CreateProduct extends Component {
         this.props.history.push("/")
     }
 
+    isSelected(ingredientObject) {
+        let foundIngredient = this.state.newProductIngredients.find(ingredient => {
+            return ingredient.ingredientId === ingredientObject.ingredientId
+        })
+        console.log(foundIngredient === undefined ? false : true)
+    }
+
     componentDidMount() {
         APIManager.getData('ingredients')
         .then(ingredients =>{
+            // ingredients.forEach(element => {
+            //     element.checked = false
+            // })
             this.setState({
                 ingredients: ingredients
             })
@@ -67,10 +77,10 @@ class CreateProduct extends Component {
             .then(()=>APIManager.getData('ingredients'))
             .then(ings=>{
                 console.log(ings);
-                this.setState({
-                ingredients: ings})
+                this.setState(() => 
+                { return {ingredients: ings}})
             })
-            console.log(this.refs.ing.inputRef.value) //if you want the search bar to clear when you press enter
+            console.log(this.refs.ing.inputRef.value) 
             this.refs.ing.inputRef.value= ""
         }
     }
@@ -122,7 +132,7 @@ class CreateProduct extends Component {
                 <Input ref='ing' className='input' id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
                 {
                     this.state.ingredients.map(ingredient =>
-                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} className='checkbox' label={ingredient.name}/>)
+                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} checked={this.isSelected(ingredient)} label={ingredient.name}/>)
                 }
                 <Container textAlign="center">
                     <Button circular color='teal' size='normal' onClick={this.postProduct}>Add A Product</Button>
