@@ -54,7 +54,7 @@ class Bad extends Component {
                     <br/>
                     <div>{this.state.product.product.name} has HAIRY SCARIES!</div>
                     <br/>
-                    <div>Hairy Scaries included in this product:</div>
+                    <div>Silicones and Sulfates included in this product:</div>
                     {
                         this.state.badIng.map(ingredient =>
                              <div>{ingredient}</div>)

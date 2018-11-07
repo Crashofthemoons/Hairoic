@@ -16,16 +16,7 @@ export default class Scan extends Component {
     state={
         isHidden: "notHidden",
         barcode: "",
-        product: {},
-        new: 0
-    }
-
-    componentDidMount() {
-        this._isMounted = true;
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false;
+        product: {}
     }
 
     logOut = () => {

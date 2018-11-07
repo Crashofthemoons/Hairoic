@@ -13,13 +13,7 @@ import APIManager from './APIManager'
 
 class ApplicationViews extends Component {
 
-  state ={
-    product: {}
-
-  }
-
   
-
   render() {
     return (
       <React.Fragment>
@@ -27,7 +21,7 @@ class ApplicationViews extends Component {
           return <Scan {...props} product={props.location.state}/>
         }} />
         <Route exact path="/createproduct" render={(props) => {
-          return <CreateProduct {...props} barcode={props.location.state}/>
+          return <CreateProduct {...props} key={Math.random()} barcode={props.location.state}/>
         }} />
         <Route exact path="/login" render={(props) => {
           return <LogIn {...props} />
