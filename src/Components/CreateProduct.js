@@ -27,7 +27,7 @@ class CreateProduct extends Component {
         let foundIngredient = this.state.newProductIngredients.find(ingredient => {
             return ingredient.ingredientId === ingredientObject.ingredientId
         })
-        console.log(foundIngredient === undefined ? false : true)
+        return foundIngredient === undefined ? false : true
     }
 
     componentDidMount() {
@@ -77,11 +77,13 @@ class CreateProduct extends Component {
             .then(()=>APIManager.getData('ingredients'))
             .then(ings=>{
                 console.log(ings);
+                this.props.createRandoNum()
                 this.setState(() => 
                 { return {ingredients: ings}})
             })
             console.log(this.refs.ing.inputRef.value) 
             this.refs.ing.inputRef.value= ""
+            window.location.reload()
         }
     }
 
@@ -95,6 +97,7 @@ class CreateProduct extends Component {
         console.log(prod)
         APIManager.addData('products', prod)
         .then(this.props.history.push('/'))
+        
     }
 
     render() {
