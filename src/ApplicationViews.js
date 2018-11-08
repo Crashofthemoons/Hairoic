@@ -13,7 +13,16 @@ import APIManager from './APIManager'
 
 class ApplicationViews extends Component {
 
+  state = {
+    randoNum: 0
+  }
   
+  createRandoNum = () => {
+    this.setState({
+      randoNum: Math.random()
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -21,7 +30,7 @@ class ApplicationViews extends Component {
           return <Scan {...props} product={props.location.state}/>
         }} />
         <Route exact path="/createproduct" render={(props) => {
-          return <CreateProduct {...props} key={Math.random()} barcode={props.location.state}/>
+          return <CreateProduct {...props} createRandoNum={this.createRandoNum} barcode={props.location.state}/>
         }} />
         <Route exact path="/login" render={(props) => {
           return <LogIn {...props} />
