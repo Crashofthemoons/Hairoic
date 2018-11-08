@@ -135,7 +135,7 @@ class CreateProduct extends Component {
                 <Input ref='ing' className='input' id="ingredient" onChange={this.handleFieldChange} onKeyPress={this.postIngredient} placeholder="Add New Ingredient..."/>
                 {
                     this.state.ingredients.map(ingredient =>
-                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} checked={this.isSelected(ingredient)} label={ingredient.name}/>)
+                        <Checkbox key={ingredient.IngredientId} onChange={this.handleCheckbox} id={ingredient.ingredientId} value={ingredient.name} label={ingredient.name}/>)
                 }
                 <Container textAlign="center">
                     <Button circular color='teal' size='normal' onClick={this.postProduct}>Add A Product</Button>
